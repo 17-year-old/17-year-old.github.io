@@ -1,0 +1,56 @@
+baseURL = "https://www.fubailin.com/"
+DefaultContentLanguage = "zh" # Theme's display language, supports: en, fr, zh, zh-hant
+languageCode = "zh-cn"
+title = "那年十七"
+copyright = "那年十七"
+theme = "diary"
+# googleAnalytics = "UA-123-45"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "perldoc"
+    tabWidth = 4
+
+[params]
+subtitle = "中年油腻程序员"
+enableGitalk = true
+disableDarkMode=true
+
+# Twitter Card and Open Graph settings
+enableOpenGraph = true
+enableTwitterCards = true
+title = "My Blog" # will set 'og:site_name'
+description = "My HomePage Description"  # will set 'og:description'
+
+[params.gitalk]
+  owner = "17-years-old"
+  repo = "17-years-old.github.io"
+  client_id = "ea8f11aa70f33e416268"
+  client_secret = "16f06acefc27fb648442b92cc257b784983339b6"
+[taxonomies]
+   tag = "tags"
+   category = "categories"
+
+[[menu.main]]
+url = "/categories"
+name = "分类"
+weight = 2
+[[menu.main]]
+url = "/tags"
+name = "标签"
+weight = 3
+[[menu.main]]
+url = "/posts"
+name = "文章"
+weight = 1
+[[menu.main]]
+url = "/about"
+name = "关于"
+weight = 4
