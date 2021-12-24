@@ -32,4 +32,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           cname: www.fubailin.com
-          destination_dir: ./doc
+          destination_dir: ./docs
