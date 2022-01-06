@@ -21,7 +21,7 @@ theme = "diary"
 [params]
 subtitle = "中年油腻程序员"
 enableGitalk = true
-disableDarkMode=true
+disableDarkMode=false
 
 # Twitter Card and Open Graph settings
 enableOpenGraph = true
