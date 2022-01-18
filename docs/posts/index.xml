@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 那年十七</title><link>https://www.fubailin.com/posts/</link><description>Recent content in Posts on 那年十七</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>那年十七</copyright><lastBuildDate>Fri, 07 Jan 2022 14:13:00 +0800</lastBuildDate><atom:link href="https://www.fubailin.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>个人投资原则</title><link>https://www.fubailin.com/posts/%E4%B8%AA%E4%BA%BA%E6%8A%95%E8%B5%84%E5%8E%9F%E5%88%99/</link><pubDate>Fri, 07 Jan 2022 14:13:00 +0800</pubDate><guid>https://www.fubailin.com/posts/%E4%B8%AA%E4%BA%BA%E6%8A%95%E8%B5%84%E5%8E%9F%E5%88%99/</guid><description>资金和风险管理 在任何一笔交易之中，风险/回报比率至少是1：3。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 那年十七</title><link>https://www.fubailin.com/posts/</link><description>Recent content in Posts on 那年十七</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>那年十七</copyright><lastBuildDate>Tue, 18 Jan 2022 15:31:00 +0800</lastBuildDate><atom:link href="https://www.fubailin.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Delphi源代码分析读书笔记</title><link>https://www.fubailin.com/posts/delphi%E6%BA%90%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/</link><pubDate>Tue, 18 Jan 2022 15:31:00 +0800</pubDate><guid>https://www.fubailin.com/posts/delphi%E6%BA%90%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/</guid><description>第1章 最小化Delphi内核 第2章 基本数据类型的实现 结构体变体类型，基本上没用过这种类型，以前对这个语法理解的迷迷糊糊的 TPerson = record
+FirstName, LastName: string[40];
+BirthDate: TDate;
+case Citizen: Boolean of
+True:
+(Birthplace: string[40]);
+False:
+(Country: string[20];
+EntryPort: string[20];
+EntryDate, ExitDate: TDate);
+end;
+其中的Citizen相当于另外添加了一个Boolean字段，等价于
+TPerson = record
+FirstName, LastName: string[40];
+BirthDate: TDate;
+Citizen: Boolean;
+case Boolean of
+True:
+(Birthplace: string[40]);
+False:
+(Country: string[20];
+EntryPort: string[20];
+EntryDate, ExitDate: TDate);
+end;
+可以在代码中使用Citizen，也可以不使用。Citizen完完全全的相当于一个独立字段，Delphi并不会自动关联或检查Citizen的值和实际存储的值，即是说可以给Citizen赋值为False, 同时给Birthplace赋值，或者给Citizen赋值为True,同时给Country、EntryPort等变量赋值。也可以只给Birthplace赋值，而完全不处理Citizen。这都是取决于程序的需要。当然在一般情况下，两者需要保持关联，赋值时保持一致，读取时根据类型来决定读哪些字段。实际第二段代码里的True、False是没有意义的，对程序员和编译器来说都没意义。第一段代码里的True、False对编译器来说也没有任何意义，但可以方便程序员理解代码。
+那怎么判断变体部分到底存的什么内容呢？简单来说无法判断。但是在实际使用过程中，可以根据上下文来确定取值。或者在有tag字段的时候根据tag值来判断，当然这只能依赖于写值时正确的保持了关联。
+Int64Rec = packed record
+case Integer of
+0: (Lo, Hi: Cardinal);
+1: (Cardinals: array [0.</description></item><item><title>个人投资原则</title><link>https://www.fubailin.com/posts/%E4%B8%AA%E4%BA%BA%E6%8A%95%E8%B5%84%E5%8E%9F%E5%88%99/</link><pubDate>Fri, 07 Jan 2022 14:13:00 +0800</pubDate><guid>https://www.fubailin.com/posts/%E4%B8%AA%E4%BA%BA%E6%8A%95%E8%B5%84%E5%8E%9F%E5%88%99/</guid><description>资金和风险管理 在任何一笔交易之中，风险/回报比率至少是1：3。
 风险/回报比率 = （买进价位 - 出场价位）/（目标价位 - 买进价位） 以初始资本的25%开始交易，随后以可用资本的25%交易。当交易账户由亏转盈时，你便将50%的获利存入银行，而且在该会计期间不再动用存入银行的获利。 未存入银行的50%的获利用于增加可用资本，在后续的每一笔交易中，你的风险资本绝对不能超过可用资本的25%。 当存入银行的获利超过一定规模后（如年化利率达到20%以上时？），可以考虑以部分利润（超过20%的部分？）增加头寸的规模。 不可让获利头寸演变为亏损。
 当风险/回报比率变为1：2时，即已实现预期回报的2/3时，应该将止损点调整至成本之上。
 如果价格持续朝有利方向发展，并达到当初的目标价格，则了结1/3或一半的获利，并调高止损点。

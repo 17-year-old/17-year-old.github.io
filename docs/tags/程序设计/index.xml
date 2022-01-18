@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>程序设计 on 那年十七</title><link>https://www.fubailin.com/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</link><description>Recent content in 程序设计 on 那年十七</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>那年十七</copyright><lastBuildDate>Tue, 18 Jan 2022 15:31:00 +0800</lastBuildDate><atom:link href="https://www.fubailin.com/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml"/><item><title>Delphi源代码分析读书笔记</title><link>https://www.fubailin.com/posts/delphi%E6%BA%90%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/</link><pubDate>Tue, 18 Jan 2022 15:31:00 +0800</pubDate><guid>https://www.fubailin.com/posts/delphi%E6%BA%90%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/</guid><description>第1章 最小化Delphi内核 第2章 基本数据类型的实现 结构体变体类型，基本上没用过这种类型，以前对这个语法理解的迷迷糊糊的 TPerson = record
+FirstName, LastName: string[40];
+BirthDate: TDate;
+case Citizen: Boolean of
+True:
+(Birthplace: string[40]);
+False:
+(Country: string[20];
+EntryPort: string[20];
+EntryDate, ExitDate: TDate);
+end;
+其中的Citizen相当于另外添加了一个Boolean字段，等价于
+TPerson = record
+FirstName, LastName: string[40];
+BirthDate: TDate;
+Citizen: Boolean;
+case Boolean of
+True:
+(Birthplace: string[40]);
+False:
+(Country: string[20];
+EntryPort: string[20];
+EntryDate, ExitDate: TDate);
+end;
+可以在代码中使用Citizen，也可以不使用。Citizen完完全全的相当于一个独立字段，Delphi并不会自动关联或检查Citizen的值和实际存储的值，即是说可以给Citizen赋值为False, 同时给Birthplace赋值，或者给Citizen赋值为True,同时给Country、EntryPort等变量赋值。也可以只给Birthplace赋值，而完全不处理Citizen。这都是取决于程序的需要。当然在一般情况下，两者需要保持关联，赋值时保持一致，读取时根据类型来决定读哪些字段。实际第二段代码里的True、False是没有意义的，对程序员和编译器来说都没意义。第一段代码里的True、False对编译器来说也没有任何意义，但可以方便程序员理解代码。
+那怎么判断变体部分到底存的什么内容呢？简单来说无法判断。但是在实际使用过程中，可以根据上下文来确定取值。或者在有tag字段的时候根据tag值来判断，当然这只能依赖于写值时正确的保持了关联。
+Int64Rec = packed record
+case Integer of
+0: (Lo, Hi: Cardinal);
+1: (Cardinals: array [0.</description></item></channel></rss>
