@@ -6,8 +6,6 @@ copyright = "那年十七"
 theme = "diary"
 # googleAnalytics = "UA-123-45"
 
-[security.gotemplates]
-allowActionJSTmpl = true
 
 [markup]
   [markup.highlight]
