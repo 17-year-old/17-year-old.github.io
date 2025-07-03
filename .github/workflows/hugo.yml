@@ -56,6 +56,10 @@ jobs:
           hugo \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Remove symlinks in public directory
+        run: find ./public -type l -exec rm {} +
+      - name: Check public directory size
+        run: du -sh ./public
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
