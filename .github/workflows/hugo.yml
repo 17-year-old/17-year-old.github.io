@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Hugo setup
-        uses: peaceiris/actions-hugo@3
+        uses: peaceiris/actions-hugo@v3
         with:
           extened: true
       - name: Install Dart Sass
